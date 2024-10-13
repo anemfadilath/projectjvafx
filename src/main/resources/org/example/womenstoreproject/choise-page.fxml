@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane " stylesheets="@style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.ChoisePageController">
+   <children>
+      <Button fx:id="btnclothes" contentDisplay="BOTTOM" layoutX="34.0" layoutY="180.0" mnemonicParsing="false" onAction="#handleButtonClothesClick" prefHeight="26.0" prefWidth="237.0" styleClass="round-button" text="Clothes" textOverrun="CLIP" />
+      <Button fx:id="btnshoes" contentDisplay="BOTTOM" layoutX="239.0" layoutY="165.0" maxHeight="109.0" maxWidth="116.0" mnemonicParsing="false" onAction="#handleButtonShoesClick" prefHeight="109.0" prefWidth="116.0" styleClass="round-button" stylesheets="@style.css" text="Shoes" textOverrun="CLIP" />
+      <Button fx:id="btnaccesories" contentDisplay="BOTTOM" layoutX="439.0" layoutY="165.0" maxHeight="120.0" maxWidth="110.0" mnemonicParsing="false" onAction="#handleButtonAccesoriesClick" prefHeight="120.0" prefWidth="110.0" styleClass="round-button" text="Accesories" textOverrun="CLIP" />
+      <Text layoutX="239.0" layoutY="47.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="custom-text" text="WOMEN STORE" wrappingWidth="159.7366943359375" />
+   </children>
+</AnchorPane>

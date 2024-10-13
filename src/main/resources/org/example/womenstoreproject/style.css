@@ -1,0 +1,23 @@
+.anchor-pane {
+    -fx-background-color: #f172e5;
+    -fx-border-color: #333;
+    -fx-border-width: 2px;
+}
+.round-button {
+    -fx-background-radius: 50%;
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
+    -fx-background-color: #d7dbdd   ;
+    -fx-text-fill:  #f172e5;
+    -fx-font-size: 10px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+}
+.custom-text {
+    -fx-font-size: 20px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-fill:  #d7dbdd;
+}
