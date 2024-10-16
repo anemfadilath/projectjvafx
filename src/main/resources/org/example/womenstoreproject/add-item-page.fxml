@@ -12,6 +12,7 @@
       <TextField fx:id="txtpurchaseprice" layoutX="195.0" layoutY="174.0" promptText="Purchase Price" />
       <TextField fx:id="txtsellprice" layoutX="195.0" layoutY="213.0" promptText="Sell Price" />
       <TextField fx:id="txtsize" layoutX="195.0" layoutY="253.0" promptText="Size" />
-      <Button fx:id="btncreate" layoutX="248.0" layoutY="317.0" mnemonicParsing="false" onAction="#createButtonClick" text="Create" />
+      <Button fx:id="btncreate" layoutX="178.0" layoutY="317.0" mnemonicParsing="false" onAction="#createButtonClick" text="Create" />
+      <Button fx:id="btncreate1" layoutX="319.0" layoutY="317.0" mnemonicParsing="false" onAction="#returnButtonClick" text="Return" />
    </children>
 </AnchorPane>

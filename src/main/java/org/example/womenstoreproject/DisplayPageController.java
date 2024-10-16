@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -40,6 +41,14 @@ public class DisplayPageController {
 
     @FXML
     private Text txtstock;
+    @FXML
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
     @FXML
 
@@ -114,6 +123,19 @@ public class DisplayPageController {
                 e.printStackTrace();
             }
         }
+    }
+    public  void DelteButtonClick() throws SQLException {
+        if(category.equals("Clothes")) {
+            try {
+                Clothes selectedClothe = (Clothes) productListView.getSelectionModel().getSelectedItem();
+                DeleteOperations deleteOperations = new DeleteOperations();
+                deleteOperations.DeleteClothes(selectedClothe.getNumber());
+                listProducts();
+            }catch (SQLException e) {
+                showAlert(e.getMessage());
+            }
+        }
+
     }
 
 }

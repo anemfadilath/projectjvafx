@@ -59,6 +59,28 @@ public class CreateOperation {
             }
         }
     }
+    public void insertIntoAccessories(Accessories accessories) throws SQLException {
+        Connection connection = Databaseconnection.getConnection();
+        String sql = "INSERT INTO Products (name, purchasePrice, sellPrice) VALUES (?, ?, ?)";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setString(1, accessories.getName());
+            preparedStatement.setDouble(2, accessories.getPurchasePrice());
+            preparedStatement.setDouble(3, accessories.getSellPrice());
+            preparedStatement.executeUpdate();
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    String sqlc = "INSERT INTO Accesories (number) VALUES (?)";
+                    try (PreparedStatement preparedStatement2 = connection.prepareStatement(sqlc)) {
+                        preparedStatement2.setInt(1,generatedKeys.getInt(1) );
+                        preparedStatement2.executeUpdate();
+                    }
+
+                } else {
+                    throw new SQLException("Échec de la création du produit, aucun ID généré.");
+                }
+            }
+        }
+    }
 
 
 
