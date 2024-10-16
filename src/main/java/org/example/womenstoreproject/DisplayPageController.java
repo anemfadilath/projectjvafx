@@ -20,6 +20,7 @@ public class DisplayPageController {
         this.stage = stage;
         this.category = category;
         listProducts();
+        disableSizeTxt(category);
     }
     @FXML
     private ListView<Product> productListView;
@@ -42,6 +43,12 @@ public class DisplayPageController {
     @FXML
     private Text txtstock;
     @FXML
+    private void disableSizeTxt(String category){
+        if (category.equals("Accesories")){
+            txtsize.setVisible(false);
+        }
+    }
+    @FXML
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erreur");
@@ -62,20 +69,24 @@ public class DisplayPageController {
             } else if (category.equals("Shoes")) {
                 productListView.setItems(SelectOperations.selectShoes());
                 productListView.setOnMouseClicked(this::shoesClick);
+            } else if (category.equals("Accesories")) {
+                productListView.setItems(SelectOperations.selectAccessoiries());
+                productListView.setOnMouseClicked(this::accessoriesClick);
+
             }
         }
     }
 
     private void clothesClick(MouseEvent event) {
-        Clothes selectedProduct = (Clothes) productListView.getSelectionModel().getSelectedItem();
-        if (selectedProduct != null) {
+        Clothes selectedClothe = (Clothes) productListView.getSelectionModel().getSelectedItem();
+        if (selectedClothe != null) {
 
-            txtname.setText(selectedProduct.getName());
-            txtpurchaseprice.setText(String.valueOf(selectedProduct.getPurchasePrice()));
-            txtsellprice.setText(String.valueOf(selectedProduct.getSellPrice()));
-            txtsize.setText(String.valueOf(selectedProduct.getSize()));
-            txtstock.setText(String.valueOf(selectedProduct.getNumberOfItems()));
-            txtdiscounted.setText(String.valueOf(selectedProduct.getDiscountPrice()));
+            txtname.setText(selectedClothe.getName());
+            txtpurchaseprice.setText(String.valueOf(selectedClothe.getPurchasePrice()));
+            txtsellprice.setText(String.valueOf(selectedClothe.getSellPrice()));
+            txtsize.setText(String.valueOf(selectedClothe.getSize()));
+            txtstock.setText(String.valueOf(selectedClothe.getNumberOfItems()));
+            txtdiscounted.setText(String.valueOf(selectedClothe.getDiscountPrice()));
         }
     }
     private void shoesClick(MouseEvent event) {
@@ -88,6 +99,19 @@ public class DisplayPageController {
             txtsize.setText(String.valueOf(selectedShoe.getShoeSize()));
             txtstock.setText(String.valueOf(selectedShoe.getNumberOfItems()));
             txtdiscounted.setText(String.valueOf(selectedShoe.getDiscountPrice()));
+        }
+    }
+
+    private void accessoriesClick(MouseEvent event) {
+        Accessories selectedAccessorie = (Accessories) productListView.getSelectionModel().getSelectedItem();
+        if (selectedAccessorie != null) {
+
+            txtname.setText(selectedAccessorie.getName());
+            txtpurchaseprice.setText(String.valueOf(selectedAccessorie.getPurchasePrice()));
+            txtsellprice.setText(String.valueOf(selectedAccessorie.getSellPrice()));
+
+            txtstock.setText(String.valueOf(selectedAccessorie.getNumberOfItems()));
+            txtdiscounted.setText(String.valueOf(selectedAccessorie.getDiscountPrice()));
         }
     }
     public void handleButtonClick() {
@@ -107,14 +131,14 @@ public class DisplayPageController {
         }
     }
     public void ModifyButtonClick(){
-        Clothes selectedProduct = (Clothes) productListView.getSelectionModel().getSelectedItem();
+        Product selectedProduct = productListView.getSelectionModel().getSelectedItem();
         if (selectedProduct != null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("modify-page.fxml"));
                 Parent root = loader.load();
 
                 ModifyController controller = loader.getController();
-                controller.setStage(stage);
+                controller.setStage(stage,this.category);
                 controller.setSelectedProduct(selectedProduct);
 
                 stage.setScene(new Scene(root));
@@ -136,6 +160,34 @@ public class DisplayPageController {
             }
         }
 
+    }
+
+    private void returnButtonClick(Stage stage){
+        MainViewController mainViewController = new MainViewController();
+        mainViewController.setStage(stage); // Set the stage
+        mainViewController.handleButtonClick();
+    }
+    @FXML
+    public void returnButtonClick(){
+      returnButtonClick(stage);
+    }
+    public void purchaseButtonClick(){
+        Product selectedProduct = productListView.getSelectionModel().getSelectedItem();
+        if (selectedProduct != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("quantity-page.fxml"));
+                Parent root = loader.load();
+
+                QuantityPageController controller = loader.getController();
+                controller.setStage(stage,this.category);
+                controller.purchaseProduct(selectedProduct);
+
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

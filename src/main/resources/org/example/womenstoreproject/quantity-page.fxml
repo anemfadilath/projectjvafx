@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.QuantityPageController">
+    <Label text="Enter Quantity:" />
+    <TextField fx:id="txtquantity" />
+    <HBox spacing="10">
+        <Button onAction="#ConfirmButtonClick" text="Confirm" />
+        <Button onAction="#handleCancel" text="Cancel" />
+    </HBox>
+</VBox>

@@ -91,33 +91,14 @@ public class AddItemPageController {
     }
 
     public void returnButtonClick() throws SQLException {
-        if(category.equals("Clothes")){
-            returnToPage("Clothes");
-
-
-        }
-        else if(category.equals("Shoes")){
-            returnToPage("Shoes");
-
-        }
-        else if (category.equals("Accesories")){
-            returnToPage("Accesories");
-        }
+       returnToPage(this.category);
     }
     public void createButtonClick() throws SQLException {
 
-        if(category.equals("Clothes")){
-            createClothes();
-
-
-        }
-        else if(category.equals("Shoes")){
-            createShoes();
-
-        }
-       else if (category.equals("Accesories")){
-
-            createAccesories();
+        switch (category) {
+            case "Clothes" -> createClothes();
+            case "Shoes" -> createShoes();
+            case "Accesories" -> createAccesories();
         }
     }
     }

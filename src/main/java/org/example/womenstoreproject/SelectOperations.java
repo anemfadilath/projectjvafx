@@ -31,6 +31,25 @@ public class SelectOperations {
     }
 
 
+    public static ObservableList<Product> selectAccessoiries() throws SQLException {
+        ObservableList<Product> accessories = FXCollections.observableArrayList();
+        Connection connection = Databaseconnection.getConnection();
+        String query = "SELECT Products.number, Products.name, Products.sellPrice, Products.purchasePrice, Products.numberOfItems FROM Products JOIN Accesories ON Products.number = Accesories.number";
+
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+
+        while (resultSet.next()) {
+            int number = resultSet.getInt("number");
+            String name = resultSet.getString("name");
+            double sellPrice = resultSet.getDouble("sellPrice");
+            double purchasePrice = resultSet.getDouble("purchasePrice");
+            int numberOfItems = resultSet.getInt("numberOfItems");
+            accessories.add(new Accessories( number,name, sellPrice, purchasePrice,numberOfItems));
+        }
+
+        return accessories;
+    }
     public static ObservableList<Product> selectShoes() throws SQLException {
         ObservableList<Product> shoes = FXCollections.observableArrayList();
         Connection connection = Databaseconnection.getConnection();

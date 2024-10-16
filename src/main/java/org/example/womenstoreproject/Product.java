@@ -106,7 +106,7 @@ public abstract class Product implements Discount,Comparable<Double> {
     }
     @Override
     public String toString() {
-        return "number=" + number + ", name=" + name + ", purchasePrice=";
+        return "number=" + number + ", name=" + name ;
     }
     public void sell(int nbItems) throws IllegalArgumentException{
 

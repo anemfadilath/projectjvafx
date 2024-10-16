@@ -29,9 +29,10 @@
             <Button fx:id="btnadd1" layoutX="2.0" layoutY="236.0" mnemonicParsing="false" onAction="#ModifyButtonClick" text="Modify" />
             <Button fx:id="btnadd11" layoutX="171.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="25.0" prefWidth="78.0" text="Sell" />
             <Button fx:id="btnadd111" layoutX="2.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleButtonClick" text="Apply discount" />
-            <Button fx:id="btnadd1111" layoutX="171.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="25.0" prefWidth="78.0" text="Purchase" />
+            <Button fx:id="btnadd1111" layoutX="171.0" layoutY="295.0" mnemonicParsing="false" onAction="#purchaseButtonClick" prefHeight="25.0" prefWidth="78.0" text="Purchase" />
             <Button layoutX="93.0" layoutY="236.0" mnemonicParsing="false" onAction="#DelteButtonClick" text="Delete" />
          </children>
       </Pane>
+      <Button layoutX="410.0" layoutY="13.0" mnemonicParsing="false" onAction="#returnButtonClick" prefHeight="26.0" prefWidth="160.0" text="Return" />
     </children>
 </AnchorPane>
