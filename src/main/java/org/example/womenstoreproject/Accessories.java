@@ -15,7 +15,7 @@ public class Accessories extends Product{
     }
     @Override
     public  void  applyDiscount() {
-        double price=this.getSellPrice()*50/100;
+        double price=this.getSellPrice()-this.getSellPrice()*50/100;
         this.setDiscountPrice(price);
     }
 }

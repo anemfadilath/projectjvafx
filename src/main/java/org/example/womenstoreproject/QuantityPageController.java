@@ -15,19 +15,23 @@ public class QuantityPageController {
     private String category;
     private Stage stage;
     private Product product;
+    private String operation;
 
-    public void setStage(Stage stage,String category) {
+    public void setStage(Stage stage,String category,String operation) {
         this.stage = stage;
         this.category = category;
+        this.operation = operation;
         System.out.println(category);
 
     }
 
+
+
     @FXML
     private TextField txtquantity;
-    public void purchaseProduct(Product product)  {
+    public void sellProduct(Product product)  {
 
-           this.product =product;
+        this.product =product;
 
     }
     private void returnToPage(String category) throws SQLException {
@@ -43,14 +47,28 @@ public class QuantityPageController {
         }
     }
     @FXML
-    void handleCancel(ActionEvent event) {
-
+    void cancelButtonClick(ActionEvent event) throws SQLException {
+        returnToPage(this.category);
     }
 
     @FXML
     public void ConfirmButtonClick() throws SQLException {
-        new UpdateOperation().purchaseProduct(this.product, Integer.parseInt(txtquantity.getText()));
-    returnToPage(this.category);
-    }
+       try {
+           if(this.operation.equals("sell")) {
+               new UpdateOperation().sellProduct(this.product, Integer.parseInt(txtquantity.getText()));
+               returnToPage(this.category);
 
+               new MessageController().showMessage();
+           }
+           else if(this.operation.equals("purchase")) {
+               new UpdateOperation().purchaseProduct(this.product, Integer.parseInt(txtquantity.getText()));
+               returnToPage(this.category);
+               new MessageController().showMessage();
+           }
+
+    }catch(IllegalArgumentException e){
+        new MessageController().showAlert(e.getMessage());
+    }
 }
+}
+

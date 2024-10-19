@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.QuantityPageController">
-    <Label text="Enter Quantity:" />
+<VBox alignment="CENTER" prefHeight="398.0" prefWidth="293.0" spacing="10" stylesheets="@sellpurchase.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.QuantityPageController">
+    <Label stylesheets="@sellpurchase.css" text="Enter Quantity:" />
     <TextField fx:id="txtquantity" />
-    <HBox spacing="10">
-        <Button onAction="#ConfirmButtonClick" text="Confirm" />
-        <Button onAction="#handleCancel" text="Cancel" />
+    <HBox prefHeight="66.0" prefWidth="250.0" spacing="10" styleClass="hbox-buttons" stylesheets="@sellpurchase.css">
+        <Button onAction="#ConfirmButtonClick" stylesheets="@sellpurchase.css" text="Confirm" />
+        <Button onAction="#cancelButtonClick" text="Cancel" />
     </HBox>
 </VBox>

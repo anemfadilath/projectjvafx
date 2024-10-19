@@ -70,4 +70,18 @@ public class SelectOperations {
 
         return shoes;
     }
+    public double[] selectIncome() throws SQLException {
+        Connection connection = Databaseconnection.getConnection();
+        String query = "SELECT * FROM  Income";
+        double[] data = new double[3];
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+        if (resultSet.next()) {
+            data[0] = resultSet.getDouble("income");
+            data[1] = resultSet.getDouble("cost");
+            data[2] = resultSet.getDouble("capital");
+        }
+  return data;
+
+    }
 }

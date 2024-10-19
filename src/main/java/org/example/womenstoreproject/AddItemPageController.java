@@ -35,14 +35,7 @@ public class AddItemPageController {
         System.out.println(category);
         disableSizeField(category);
     }
-    @FXML
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Erreur");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+
    @FXML
    public  void disableSizeField(String category){
         if (category.equals("Accesories")){
@@ -54,8 +47,9 @@ public class AddItemPageController {
             Clothes newClothes = new Clothes(txtname.getText(), Double.parseDouble(txtpurchaseprice.getText()), Double.parseDouble(txtsellprice.getText()), Integer.parseInt(txtsize.getText()));
             CreateOperation createOperation = new CreateOperation();
             createOperation.insertIntoClothes(newClothes);
+            new MessageController().showMessage();
         }catch(IllegalArgumentException e){
-            showAlert(e.getMessage());
+            new MessageController().showAlert(e.getMessage());
         }
 
     }
@@ -65,7 +59,7 @@ public class AddItemPageController {
             CreateOperation createOperation = new CreateOperation();
             createOperation.insertIntoShoes(newShoes);
         }catch(IllegalArgumentException e){
-            showAlert(e.getMessage());
+            new MessageController().showAlert(e.getMessage());
         }
     }
     private void createAccesories() throws SQLException {
@@ -73,8 +67,9 @@ public class AddItemPageController {
             Accessories newAccessories = new Accessories(txtname.getText(), Double.parseDouble(txtpurchaseprice.getText()), Double.parseDouble(txtsellprice.getText()));
             CreateOperation createOperation = new CreateOperation();
             createOperation.insertIntoAccessories(newAccessories);
+            new MessageController().showMessage();
         }catch(IllegalArgumentException e){
-            showAlert(e.getMessage());
+            new MessageController().showAlert(e.getMessage());
         }
     }
     private void returnToPage(String category) throws SQLException {

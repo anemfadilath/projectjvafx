@@ -86,7 +86,12 @@ public class DisplayPageController {
             txtsellprice.setText(String.valueOf(selectedClothe.getSellPrice()));
             txtsize.setText(String.valueOf(selectedClothe.getSize()));
             txtstock.setText(String.valueOf(selectedClothe.getNumberOfItems()));
-            txtdiscounted.setText(String.valueOf(selectedClothe.getDiscountPrice()));
+            if(selectedClothe.getDiscountPrice()==0.0) {
+                txtdiscounted.setText("This Product is not discounted");
+            }
+            else {
+                txtdiscounted.setText(String.valueOf(selectedClothe.getDiscountPrice()));
+            }
         }
     }
     private void shoesClick(MouseEvent event) {
@@ -98,7 +103,12 @@ public class DisplayPageController {
             txtsellprice.setText(String.valueOf(selectedShoe.getSellPrice()));
             txtsize.setText(String.valueOf(selectedShoe.getShoeSize()));
             txtstock.setText(String.valueOf(selectedShoe.getNumberOfItems()));
-            txtdiscounted.setText(String.valueOf(selectedShoe.getDiscountPrice()));
+            if(selectedShoe.getDiscountPrice()==0) {
+                txtdiscounted.setText("This Product is not discounted");
+            }
+            else {
+                txtdiscounted.setText(String.valueOf(selectedShoe.getDiscountPrice()));
+            }
         }
     }
 
@@ -111,7 +121,12 @@ public class DisplayPageController {
             txtsellprice.setText(String.valueOf(selectedAccessorie.getSellPrice()));
 
             txtstock.setText(String.valueOf(selectedAccessorie.getNumberOfItems()));
-            txtdiscounted.setText(String.valueOf(selectedAccessorie.getDiscountPrice()));
+            if(selectedAccessorie.getDiscountPrice()==0) {
+                txtdiscounted.setText("This Product is not discounted");
+            }
+            else {
+                txtdiscounted.setText(String.valueOf(selectedAccessorie.getDiscountPrice()));
+            }
         }
     }
     public void handleButtonClick() {
@@ -158,13 +173,34 @@ public class DisplayPageController {
             }catch (SQLException e) {
                 showAlert(e.getMessage());
             }
+        } else if (category.equals("Shoes")) {
+            try {
+                Shoes selectedShoe = (Shoes) productListView.getSelectionModel().getSelectedItem();
+                DeleteOperations deleteOperations = new DeleteOperations();
+                deleteOperations.DeleteShoe(selectedShoe.getNumber());
+                listProducts();
+            }catch (SQLException e) {
+                showAlert(e.getMessage());
+            }
+
+        }
+        else if (category.equals("Accesories")) {
+            try {
+                Accessories selectedAccessorie = (Accessories) productListView.getSelectionModel().getSelectedItem();
+                DeleteOperations deleteOperations = new DeleteOperations();
+                deleteOperations.DeleteAccessories(selectedAccessorie.getNumber());
+                listProducts();
+            }catch (SQLException e) {
+                showAlert(e.getMessage());
+            }
+
         }
 
     }
 
     private void returnButtonClick(Stage stage){
         MainViewController mainViewController = new MainViewController();
-        mainViewController.setStage(stage); // Set the stage
+        mainViewController.setStage(stage);
         mainViewController.handleButtonClick();
     }
     @FXML
@@ -179,8 +215,42 @@ public class DisplayPageController {
                 Parent root = loader.load();
 
                 QuantityPageController controller = loader.getController();
-                controller.setStage(stage,this.category);
-                controller.purchaseProduct(selectedProduct);
+                controller.setStage(stage,this.category,"purchase");
+                controller.sellProduct(selectedProduct);
+
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void applyDiscountButtonClick() throws SQLException {
+        Product selectedProduct = productListView.getSelectionModel().getSelectedItem();
+        if (selectedProduct != null) {
+            if(this.category.equals("Clothes")) {
+                new UpdateOperation().applyDiscountClothe((Clothes) selectedProduct);
+            }
+            else if(this.category.equals("Shoes")) {
+
+                new UpdateOperation().applyDiscountShoe((Shoes) selectedProduct);
+            } else if (this.category.equals("Accesories")) {
+
+                new UpdateOperation().applyDiscountAccessories((Accessories) selectedProduct);
+            }
+        }
+    }
+    public void sellProductButtonClick(){
+        Product selectedProduct = productListView.getSelectionModel().getSelectedItem();
+        if (selectedProduct != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("quantity-page.fxml"));
+                Parent root = loader.load();
+
+                QuantityPageController controller = loader.getController();
+                controller.setStage(stage,this.category,"sell");
+                controller.sellProduct(selectedProduct);
 
                 stage.setScene(new Scene(root));
                 stage.show();

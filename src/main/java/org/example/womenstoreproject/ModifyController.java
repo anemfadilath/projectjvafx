@@ -21,6 +21,8 @@ public class ModifyController {
     @FXML
     private TextField txtsize;
     @FXML
+    private TextField txtpurchaseprice;
+    @FXML
     private TextField txtsellprice;
     private Clothes selectedClothe;
     private Shoes selectedShoe;
@@ -47,17 +49,20 @@ public class ModifyController {
                 txtname.setText(this.selectedClothe.getName());
                 txtsellprice.setText(String.valueOf(this.selectedClothe.getSellPrice()));
                 txtsize.setText(String.valueOf(this.selectedClothe.getSize()));
+                txtpurchaseprice.setText(String.valueOf(this.selectedClothe.getPurchasePrice()));
             }
             case "Shoes" -> {
                 this.selectedShoe = (Shoes) selectedProduct;
                 txtname.setText(this.selectedShoe.getName());
                 txtsellprice.setText(String.valueOf(this.selectedShoe.getSellPrice()));
                 txtsize.setText(String.valueOf(this.selectedShoe.getShoeSize()));
+                txtpurchaseprice.setText(String.valueOf(this.selectedClothe.getPurchasePrice()));
             }
             case "Accesories" -> {
                 this.selectedAccessorie = (Accessories) selectedProduct;
                 txtname.setText(this.selectedAccessorie.getName());
                 txtsellprice.setText(String.valueOf(this.selectedAccessorie.getSellPrice()));
+                txtpurchaseprice.setText(String.valueOf(this.selectedClothe.getPurchasePrice()));
             }
         }
     }
@@ -65,32 +70,42 @@ public class ModifyController {
     public void saveButtonClick() throws SQLException {
         switch (this.category) {
             case "Clothes" -> {
-                this.selectedClothe.setName(txtname.getText());
-                this.selectedClothe.setSellPrice(Double.parseDouble(txtsellprice.getText()));
-                this.selectedClothe.setSize(Integer.parseInt(txtsize.getText()));
-                UpdateOperation updateOperation = new UpdateOperation();
-                updateOperation.updateClothes(this.selectedClothe);
+                try {
+                    this.selectedClothe.setName(txtname.getText());
+                    this.selectedClothe.setSellPrice(Double.parseDouble(txtsellprice.getText()));
+                    this.selectedClothe.setSize(Integer.parseInt(txtsize.getText()));
+                    this.selectedClothe.setPurchasePrice(Double.parseDouble(txtpurchaseprice.getText()));
+                    UpdateOperation updateOperation = new UpdateOperation();
+                    updateOperation.updateClothes(this.selectedClothe);
+                    new  MessageController().showMessage();
+                }catch(IllegalArgumentException e){
+                    new MessageController().showAlert(e.getMessage());
+                }
             }
             case "Shoes" -> {
-                this.selectedShoe.setName(txtname.getText());
-                this.selectedShoe.setSellPrice(Double.parseDouble(txtsellprice.getText()));
-                this.selectedShoe.setShoeSize(Integer.parseInt(txtsize.getText()));
-                UpdateOperation updateOperation = new UpdateOperation();
-                updateOperation.updateShoes(this.selectedShoe);
+                try {
+                    this.selectedShoe.setName(txtname.getText());
+                    this.selectedShoe.setSellPrice(Double.parseDouble(txtsellprice.getText()));
+                    this.selectedShoe.setShoeSize(Integer.parseInt(txtsize.getText()));
+                    this.selectedShoe.setPurchasePrice(Double.parseDouble(txtpurchaseprice.getText()));
+                    UpdateOperation updateOperation = new UpdateOperation();
+                    updateOperation.updateShoes(this.selectedShoe);
+                }catch(IllegalArgumentException e){
+                    new MessageController().showAlert(e.getMessage());
+                }
 
             }
             case "Accesories" -> {
                 this.selectedAccessorie.setName(txtname.getText());
                 this.selectedAccessorie.setSellPrice(Double.parseDouble(txtsellprice.getText()));
+                this.selectedAccessorie.setPurchasePrice(Double.parseDouble(txtpurchaseprice.getText()));
                 UpdateOperation updateOperation = new UpdateOperation();
                 updateOperation.updateAccessories(this.selectedAccessorie);
 
             }
         }
     }
-    private void returnTopage(Stage stage) throws IOException {
 
-    }
     private void returnToPage(String category) throws SQLException {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("display-page.fxml"));

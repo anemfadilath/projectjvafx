@@ -28,7 +28,7 @@ public class Clothes extends Product {
     }
     @Override
     public void applyDiscount() {
-        double price=this.getSellPrice()*30/100;
+        double price=this.getSellPrice()-this.getSellPrice()*30/100;
         this.setDiscountPrice(price);
     }
 

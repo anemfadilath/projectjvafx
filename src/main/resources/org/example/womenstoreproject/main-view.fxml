@@ -4,36 +4,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.74" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.MainViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.74" prefHeight="680.0" prefWidth="628.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.MainViewController">
    <children>
-      <ImageView fitHeight="229.0" fitWidth="363.0" layoutX="134.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="323.0" fitWidth="529.0" layoutX="74.0" pickOnBounds="true" preserveRatio="true" styleClass="image">
          <image>
             <Image url="@bag.png" />
          </image>
       </ImageView>
-      <Text layoutX="219.0" layoutY="205.0" strokeLineCap="ROUND" strokeWidth="0.0" text="Women Sotore" textAlignment="CENTER" wrappingWidth="174.2808837890625">
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.75789475440979" green="0.08982456475496292" blue="0.7467602491378784" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.5176470875740051" green="0.250980406999588" blue="0.47058823704719543" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Text>
-      <Button fx:id="btnConnect" layoutX="252.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="30.0" prefWidth="108.0" text="Connect" textFill="#ac459c" />
+      <Text fill="#628fa5" layoutX="132.0" layoutY="395.0" strokeLineCap="ROUND" strokeWidth="0.0" styleClass="title" text="Women Shop" textAlignment="CENTER" wrappingWidth="363.08087158203125" />
+      <Button fx:id="btnConnect" layoutX="206.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="30.0" prefWidth="165.0" styleClass="button-connect" text="Connect" textFill="#ac459c" />
    </children>
 </AnchorPane>

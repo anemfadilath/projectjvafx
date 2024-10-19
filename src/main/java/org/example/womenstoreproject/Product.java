@@ -1,6 +1,7 @@
 package org.example.womenstoreproject;
 
 
+import java.sql.SQLException;
 
 public abstract class Product implements Discount,Comparable<Double> {
 
@@ -108,27 +109,41 @@ public abstract class Product implements Discount,Comparable<Double> {
     public String toString() {
         return "number=" + number + ", name=" + name ;
     }
-    public void sell(int nbItems) throws IllegalArgumentException{
+    public void sell(int nbItems) throws IllegalArgumentException, SQLException {
+        double[] data =new SelectOperations().selectIncome();
+        double income;
+        double capital;
 
         if(this.numberOfItems==0) throw new IllegalArgumentException("this product is unavailable");
 
         else if(this.numberOfItems<nbItems) throw  new IllegalArgumentException("there is less product in stock than requested");
+
         else {
             this.numberOfItems-=nbItems;
         }
 
         if(this.discountPrice==0) {
-            income += this.sellPrice * nbItems;
+            income=data[0]+this.sellPrice*nbItems;
+            capital=data[2]+this.purchasePrice*nbItems;
         }
         else{
-            income += this.discountPrice * nbItems;
-        }
-    }
-    public void purchase(int nbItems) throws IllegalArgumentException {
+            income = data[0]+this.discountPrice*nbItems;
+            capital = data[2]+this.discountPrice*nbItems;
 
+        }
+        new UpdateOperation().updateIncome(income,data[1],capital);
+
+    }
+    public void purchase(int nbItems) throws IllegalArgumentException, SQLException {
+        double[] data =new SelectOperations().selectIncome();
         if(nbItems<0) throw new IllegalArgumentException("Number of items must not be negative");
+
+        else if (data[2]<this.purchasePrice*nbItems) throw new IllegalArgumentException("Your Capital is insufficient to by this many items");
         this.numberOfItems+=nbItems;
-        cost+=this.purchasePrice *nbItems;
+        double cost=data[1]+this.purchasePrice*nbItems;
+        double capital=data[2]-this.purchasePrice*nbItems;
+        new UpdateOperation().updateIncome(data[0],cost,capital);
+
 
     }
     @Override
