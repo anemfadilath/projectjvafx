@@ -43,6 +43,7 @@ public class ModifyController {
     }
 
     public void setSelectedProduct(Product selectedProduct) {
+
         switch (this.category) {
             case "Clothes" -> {
                 this.selectedClothe = (Clothes) selectedProduct;
@@ -56,13 +57,13 @@ public class ModifyController {
                 txtname.setText(this.selectedShoe.getName());
                 txtsellprice.setText(String.valueOf(this.selectedShoe.getSellPrice()));
                 txtsize.setText(String.valueOf(this.selectedShoe.getShoeSize()));
-                txtpurchaseprice.setText(String.valueOf(this.selectedClothe.getPurchasePrice()));
+                txtpurchaseprice.setText(String.valueOf(this.selectedShoe.getPurchasePrice()));
             }
             case "Accesories" -> {
                 this.selectedAccessorie = (Accessories) selectedProduct;
                 txtname.setText(this.selectedAccessorie.getName());
                 txtsellprice.setText(String.valueOf(this.selectedAccessorie.getSellPrice()));
-                txtpurchaseprice.setText(String.valueOf(this.selectedClothe.getPurchasePrice()));
+                txtpurchaseprice.setText(String.valueOf(this.selectedAccessorie.getPurchasePrice()));
             }
         }
     }

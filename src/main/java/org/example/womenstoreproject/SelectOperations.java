@@ -12,7 +12,7 @@ public class SelectOperations {
     public static ObservableList<Product> selectClothes() throws SQLException {
         ObservableList<Product> clothes = FXCollections.observableArrayList();
         Connection connection = Databaseconnection.getConnection();
-        String query = "SELECT Products.number, Products.name, Products.sellPrice, Products.purchasePrice, Products.numberOfItems, Clothes.size FROM Products JOIN Clothes ON Products.number = Clothes.number";
+        String query = "SELECT Products.number, Products.name, Products.sellPrice, Products.purchasePrice, Products.numberOfItems,Products.discountPrice, Clothes.size FROM Products JOIN Clothes ON Products.number = Clothes.number";
 
         Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
@@ -24,7 +24,8 @@ public class SelectOperations {
                 double purchasePrice = resultSet.getDouble("purchasePrice");
                 int size= resultSet.getInt("size");
                 int numberOfItems = resultSet.getInt("numberOfItems");
-                clothes.add(new Clothes( number,name, sellPrice, purchasePrice,numberOfItems,size));
+                double discountPrice = resultSet.getDouble("discountPrice");
+                clothes.add(new Clothes( number,name, sellPrice, purchasePrice,numberOfItems,discountPrice,size));
             }
 
         return clothes;
@@ -34,7 +35,7 @@ public class SelectOperations {
     public static ObservableList<Product> selectAccessoiries() throws SQLException {
         ObservableList<Product> accessories = FXCollections.observableArrayList();
         Connection connection = Databaseconnection.getConnection();
-        String query = "SELECT Products.number, Products.name, Products.sellPrice, Products.purchasePrice, Products.numberOfItems FROM Products JOIN Accesories ON Products.number = Accesories.number";
+        String query = "SELECT Products.number, Products.name, Products.sellPrice, Products.purchasePrice, Products.numberOfItems,Products.discountPrice FROM Products JOIN Accesories ON Products.number = Accesories.number";
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
@@ -45,7 +46,8 @@ public class SelectOperations {
             double sellPrice = resultSet.getDouble("sellPrice");
             double purchasePrice = resultSet.getDouble("purchasePrice");
             int numberOfItems = resultSet.getInt("numberOfItems");
-            accessories.add(new Accessories( number,name, sellPrice, purchasePrice,numberOfItems));
+            double discountPrice = resultSet.getDouble("discountPrice");
+            accessories.add(new Accessories( number,name, sellPrice, purchasePrice,numberOfItems,discountPrice));
         }
 
         return accessories;
@@ -53,7 +55,7 @@ public class SelectOperations {
     public static ObservableList<Product> selectShoes() throws SQLException {
         ObservableList<Product> shoes = FXCollections.observableArrayList();
         Connection connection = Databaseconnection.getConnection();
-        String query = "SELECT Products.number, Products.name, Products.sellPrice, Products.purchasePrice, Products.numberOfItems, Shoes.size FROM Products JOIN Shoes ON Products.number = Shoes.number";
+        String query = "SELECT Products.number, Products.name, Products.sellPrice, Products.purchasePrice, Products.numberOfItems,Products.discountPrice , Shoes.size FROM Products JOIN Shoes ON Products.number = Shoes.number";
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
@@ -65,7 +67,8 @@ public class SelectOperations {
             double purchasePrice = resultSet.getDouble("purchasePrice");
             int size= resultSet.getInt("size");
             int numberOfItems = resultSet.getInt("numberOfItems");
-            shoes.add(new Shoes( number,name, sellPrice, purchasePrice,numberOfItems,size));
+            double discountPrice = resultSet.getDouble("discountPrice");
+            shoes.add(new Shoes( number,name, sellPrice, purchasePrice,numberOfItems,discountPrice,size));
         }
 
         return shoes;

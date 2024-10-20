@@ -23,12 +23,13 @@ public abstract class Product implements Discount,Comparable<Double> {
         if(purchasePrice <0) throw  new IllegalArgumentException("purchase price cannot be negative");
         if(sellPrice<0) throw  new IllegalArgumentException("sell price cannot be negative");
     }
-    public Product(int number,String name, double sellPrice, double purchasePrice, int numberOfItems){
+    public Product(int number,String name, double sellPrice, double purchasePrice, int numberOfItems,double discountPrice){
         this. name =  name;
         this.sellPrice = sellPrice;
         this.purchasePrice = purchasePrice;
         this.number = number;
         this.numberOfItems = numberOfItems;
+        this.discountPrice = discountPrice;
     }
 
     public int getNumber() {

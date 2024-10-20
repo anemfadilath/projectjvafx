@@ -9,8 +9,8 @@ public class Clothes extends Product {
         this.size = size;
         if(size<34 || size>54) throw new IllegalArgumentException("size must be between 34 and 54");
     }
-   public Clothes(int number ,String name, double sellPrice, double purchasePrice,int numberOfItems,int size){
-       super(number,name,sellPrice,purchasePrice,numberOfItems);
+   public Clothes(int number ,String name, double sellPrice, double purchasePrice,int numberOfItems,double discountPrice,int size){
+       super(number,name,sellPrice,purchasePrice,numberOfItems,discountPrice);
         this.size = size;
 
    }

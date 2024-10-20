@@ -121,7 +121,7 @@ public class DisplayPageController {
             txtsellprice.setText(String.valueOf(selectedAccessorie.getSellPrice()));
 
             txtstock.setText(String.valueOf(selectedAccessorie.getNumberOfItems()));
-            if(selectedAccessorie.getDiscountPrice()==0) {
+            if(selectedAccessorie.getDiscountPrice()==0.0) {
                 txtdiscounted.setText("This Product is not discounted");
             }
             else {

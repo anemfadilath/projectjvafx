@@ -60,4 +60,18 @@ public class ChoisePageController {
             e.printStackTrace();
         }
     }
+    public void icomeButtonClick(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("income-page.fxml"));
+            Parent root = loader.load();
+            IncomePageController controller = loader.getController();
+            controller.setStage(stage);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

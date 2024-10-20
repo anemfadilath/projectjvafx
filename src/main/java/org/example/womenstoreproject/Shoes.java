@@ -7,8 +7,8 @@ public class Shoes extends Product{
         this.shoeSize = shoeSize;
         if(shoeSize < 36||shoeSize > 50) throw new IllegalArgumentException("the shoe size must be between 36 and 50");
     }
-    public Shoes(int number ,String name, double sellPrice, double purchasePrice,int numberOfItems,int shoeSize){
-        super(number,name,sellPrice,purchasePrice,numberOfItems);
+    public Shoes(int number ,String name, double sellPrice, double purchasePrice,int numberOfItems,double discountPrice, int shoeSize){
+        super(number,name,sellPrice,purchasePrice,numberOfItems,discountPrice);
         this.shoeSize = shoeSize;
 
     }
