@@ -60,4 +60,21 @@ public class ChoisePageController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void handleButtonBackToMainClick() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("main-view.fxml"));
+            Parent root = loader.load();
+
+            // Set the stage for the main view controller
+            MainViewController mainController = loader.getController();
+            mainController.setStage(stage);  // Pass the stage back to MainViewController
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
