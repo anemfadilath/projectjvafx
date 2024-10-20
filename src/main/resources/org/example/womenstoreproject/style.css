@@ -14,7 +14,7 @@ Button {
 
 
 Button:hover {
-    -fx-background-color:  #628fa5;
+    -fx-background-color: #b41c59;
     -fx-text-fill: white;
     -fx-border-color: #999;
 }
@@ -60,7 +60,7 @@ GridPane {
 
 
 .button-connect:hover {
-    -fx-background-color:  #628fa5;
+    -fx-background-color: #b41c59;
     -fx-text-fill: white;
     -fx-border-color: #999;
 }
