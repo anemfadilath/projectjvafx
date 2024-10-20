@@ -8,29 +8,22 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainViewController {
-
-    private Stage stage;
-
-    // Setter to set the stage reference
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
+public class SaleController {
 
     @FXML
-    public void handleButtonClick() {
+    private Stage stage;
+    public void sallebutton () {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("choise-page.fxml"));
             Parent root = loader.load();
-
-            // Set the stage for the next controller
             ChoisePageController controller = loader.getController();
-            controller.setStage(stage);  // Pass the stage
 
+            controller.setStage(stage);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-}
+    }
+

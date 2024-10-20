@@ -1,4 +1,4 @@
-
+/* General button styling */
 Button {
     -fx-font-size: 18px;
     -fx-background-color: #f0f0f0;
@@ -6,29 +6,30 @@ Button {
     -fx-border-width: 2px;
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
-    -fx-text-fill: #628fa5;
+    -fx-text-fill: black;
     -fx-padding: 25 0 35 0;
     -fx-pref-width: 200px;
     -fx-pref-height: 100px;
-
 }
 
+/* Button hover effect - turns red when hovered */
+Button:hover {
+    -fx-background-color: #b41c59;  /* Change background color to red on hover */
+    -fx-text-fill: white;  /* Change text color to white for better visibility */
+    -fx-border-color: #999;  /* Optional: change border color */
+}
+
+/* Title styling */
 .txttitle {
     -fx-font-size: 30px;
     -fx-font-weight: bold;
-    -fx-text-fill: #628fa5;
+    -fx-text-fill: black;
     -fx-underline: true;
     -fx-padding: 25 0 35 0;
     -fx-alignment: center;
-
 }
 
-Button:hover {
-    -fx-background-color: #ddd;
-    -fx-border-color: #999;
-}
-
-
+/* GridPane adjustments */
 GridPane {
     -fx-padding: 40;
     -fx-hgap: 20;
@@ -36,16 +37,16 @@ GridPane {
     -fx-alignment: center;
 }
 
-
+/* Main title styling */
 .title {
     -fx-font-size: 36px;
     -fx-font-weight: bold;
-    -fx-text-fill: #628fa5;
+    -fx-text-fill: black;
     -fx-alignment: center;
     -fx-padding: 10 0 20 0;
 }
 
-
+/* Button connect styling */
 .button-connect {
     -fx-font-size: 18px;
     -fx-background-color: #f0f0f0;
@@ -53,19 +54,33 @@ GridPane {
     -fx-border-width: 2px;
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
-    -fx-text-fill: #628fa5;
+    -fx-text-fill: black;
     -fx-padding: 10 20 10 20;
 }
 
-
+/* Button connect hover effect - turns red when hovered */
 .button-connect:hover {
-    -fx-background-color: #ddd;
+    -fx-background-color: #b41c59;  /* Change to red on hover */
+    -fx-text-fill: white;  /* Change text to white */
     -fx-border-color: #999;
 }
 
-
+/* Image shadow effect */
 .image {
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 10,0,0,1 );
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0, 0, 1);
     -fx-alignment: center;
     -fx-padding: 20 0 10 0;
+}
+
+/* Background color for AnchorPane */
+AnchorPane {
+    -fx-background-color: #d3d3d3 ;
+}
+
+/* Styling the AnchorPane to include a background image */
+AnchorPane {
+    -fx-background-image: url("wmn.png"); /* Replace with your image name */
+    -fx-background-size: cover; /* Ensure the image covers the entire pane */
+    -fx-background-position: center; /* Center the image */
+    -fx-background-repeat: no-repeat; /* Avoid repeating the image */
 }

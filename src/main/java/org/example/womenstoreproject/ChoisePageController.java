@@ -60,18 +60,40 @@ public class ChoisePageController {
             e.printStackTrace();
         }
     }
-    public void icomeButtonClick(){
+
+    public void icomeButtonClick() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("income-page.fxml"));
             Parent root = loader.load();
             IncomePageController controller = loader.getController();
             controller.setStage(stage);
+
+            // Changer la scène pour afficher la page de revenu
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Affiche l'erreur si le chargement de la scène échoue
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
+    @FXML
+    public void handleButtonBackToMainClick() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("main-view.fxml"));
+            Parent root = loader.load();
+
+
+            MainViewController mainController = loader.getController();
+            mainController.setStage(stage);
+
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

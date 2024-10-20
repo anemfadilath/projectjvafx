@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" prefHeight="398.0" prefWidth="293.0" spacing="10" stylesheets="@sellpurchase.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.QuantityPageController">
-    <Label stylesheets="@sellpurchase.css" text="Enter Quantity:" />
+    <Label stylesheets="@sellpurchase.css" text="Enter Quantity:" textFill="#c71f65" />
     <TextField fx:id="txtquantity" />
     <HBox prefHeight="66.0" prefWidth="250.0" spacing="10" styleClass="hbox-buttons" stylesheets="@sellpurchase.css">
         <Button onAction="#ConfirmButtonClick" stylesheets="@sellpurchase.css" text="Confirm" />
