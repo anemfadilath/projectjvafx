@@ -18,7 +18,7 @@ public class SaleController {
             Parent root = loader.load();
             ChoisePageController controller = loader.getController();
 
-            controller.setStage(stage);
+            controller.setStage(stage,"");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

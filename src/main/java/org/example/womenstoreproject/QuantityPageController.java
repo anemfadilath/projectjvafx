@@ -16,12 +16,14 @@ public class QuantityPageController {
     private Stage stage;
     private Product product;
     private String operation;
+    private String user;
 
-    public void setStage(Stage stage,String category,String operation) {
+    public void setStage(Stage stage,String category,String operation,String user) {
         this.stage = stage;
         this.category = category;
         this.operation = operation;
         System.out.println(category);
+        this. user = user;
 
     }
 
@@ -39,7 +41,7 @@ public class QuantityPageController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("display-page.fxml"));
             Parent root = loader.load();
             DisplayPageController controller = loader.getController();
-            controller.setStage(stage,category);
+            controller.setStage(stage,category,this.user);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException | SQLException e) {

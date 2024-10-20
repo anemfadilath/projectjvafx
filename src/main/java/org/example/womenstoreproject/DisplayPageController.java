@@ -15,10 +15,11 @@ import java.sql.SQLException;
 public class DisplayPageController {
     private Stage stage;
     private String category;
-
-    public void setStage(Stage stage,String category) throws SQLException {
+    private String user;
+    public void setStage(Stage stage,String category,String user) throws SQLException {
         this.stage = stage;
         this.category = category;
+        this.user = user;
         listProducts();
         disableSizeTxt(category);
     }
@@ -136,7 +137,7 @@ public class DisplayPageController {
             Parent root = loader.load();
 
             AddItemPageController controller = loader.getController();
-            controller.setStage(stage, category);
+            controller.setStage(stage, category,user);
 
 
             stage.setScene(new Scene(root));
@@ -153,7 +154,7 @@ public class DisplayPageController {
                 Parent root = loader.load();
 
                 ModifyController controller = loader.getController();
-                controller.setStage(stage,this.category);
+                controller.setStage(stage,this.category,this.user);
                 controller.setSelectedProduct(selectedProduct);
 
                 stage.setScene(new Scene(root));
@@ -198,14 +199,22 @@ public class DisplayPageController {
 
     }
 
-    private void returnButtonClick(Stage stage){
-        MainViewController mainViewController = new MainViewController();
-        mainViewController.setStage(stage);
-        mainViewController.handleButtonClick();
-    }
+
     @FXML
     public void returnButtonClick(){
-      returnButtonClick(stage);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("choise-page.fxml"));
+            Parent root = loader.load();
+
+
+            ChoisePageController controller = loader.getController();
+            controller.setStage(stage,this.user);
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public void purchaseButtonClick(){
         Product selectedProduct = productListView.getSelectionModel().getSelectedItem();
@@ -215,7 +224,7 @@ public class DisplayPageController {
                 Parent root = loader.load();
 
                 QuantityPageController controller = loader.getController();
-                controller.setStage(stage,this.category,"purchase");
+                controller.setStage(stage,this.category,"purchase",this.user);
                 controller.sellProduct(selectedProduct);
 
                 stage.setScene(new Scene(root));
@@ -249,7 +258,7 @@ public class DisplayPageController {
                 Parent root = loader.load();
 
                 QuantityPageController controller = loader.getController();
-                controller.setStage(stage,this.category,"sell");
+                controller.setStage(stage,this.category,"sell",this.user);
                 controller.sellProduct(selectedProduct);
 
                 stage.setScene(new Scene(root));

@@ -29,10 +29,11 @@ public class ModifyController {
     private Accessories selectedAccessorie;
     private Stage stage;
     private String category;
-
-    public void setStage(Stage stage,String category) {
+    private String user;
+    public void setStage(Stage stage,String category,String user) {
         this.stage = stage;
         this.category = category;
+        this.user = user;
         disableSizeField(category);
     }
 
@@ -112,7 +113,7 @@ public class ModifyController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("display-page.fxml"));
             Parent root = loader.load();
             DisplayPageController controller = loader.getController();
-            controller.setStage(stage,category);
+            controller.setStage(stage,category,this.user);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException | SQLException e) {

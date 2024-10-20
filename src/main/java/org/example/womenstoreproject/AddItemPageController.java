@@ -28,10 +28,12 @@ public class AddItemPageController {
     private TextField txtsize;
     private Stage stage;
     private String category;
+    private String user;
 
-    public void setStage(Stage stage,String category) {
+    public void setStage(Stage stage,String category,String user) {
         this.stage = stage;
         this.category = category;
+        this.user = user;
         System.out.println(category);
         disableSizeField(category);
     }
@@ -77,7 +79,7 @@ public class AddItemPageController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("display-page.fxml"));
             Parent root = loader.load();
             DisplayPageController controller = loader.getController();
-            controller.setStage(stage,category);
+            controller.setStage(stage,category,user);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException | SQLException e) {

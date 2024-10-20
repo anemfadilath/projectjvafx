@@ -10,7 +10,7 @@
       <Button fx:id="btnshoes" contentDisplay="BOTTOM" layoutX="50.0" layoutY="206.0" maxHeight="142.0" maxWidth="210.0" mnemonicParsing="false" onAction="#handleButtonShoesClick" prefHeight="142.0" prefWidth="202.0" text="Shoes" textOverrun="CLIP" />
       <Button fx:id="btnaccesories" contentDisplay="BOTTOM" layoutX="384.0" layoutY="206.0" maxHeight="142.0" maxWidth="238.0" mnemonicParsing="false" onAction="#handleButtonAccesoriesClick" prefHeight="142.0" prefWidth="213.0" text="Accesories" textOverrun="CLIP" />
       <Text fx:id="txttile" fill="#cf2667" layoutX="202.0" layoutY="89.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txttitle" text="WOMEN STORE" wrappingWidth="340.5367126464844" />
-      <Button fx:id="btnclothes1" contentDisplay="BOTTOM" layoutX="384.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleButtonClothesClick" prefHeight="110.0" prefWidth="229.0" text="See Revenue" textOverrun="CLIP" />
+      <Button fx:id="btnrevenue" contentDisplay="BOTTOM" layoutX="384.0" layoutY="361.0" mnemonicParsing="false" onAction="#icomeButtonClick" prefHeight="110.0" prefWidth="229.0" text="See Revenue" textOverrun="CLIP" />
       <Button fx:id="btnBackToMain" contentDisplay="CENTER" layoutX="221.0" layoutY="514.0" mnemonicParsing="false" onAction="#handleButtonBackToMainClick" prefHeight="62.0" prefWidth="167.0" styleClass="back-to-main-button" text="Back to Main" />
    </children>
 </AnchorPane>

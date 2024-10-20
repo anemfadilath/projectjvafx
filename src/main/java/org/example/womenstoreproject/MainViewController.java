@@ -20,12 +20,12 @@ public class MainViewController {
     @FXML
     public void handleButtonClick() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("choise-page.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("connect-page.fxml"));
             Parent root = loader.load();
 
-            // Set the stage for the next controller
-            ChoisePageController controller = loader.getController();
-            controller.setStage(stage);  // Pass the stage
+
+            ConnectPageController controller = loader.getController();
+            controller.setStage(stage);
 
             stage.setScene(new Scene(root));
             stage.show();

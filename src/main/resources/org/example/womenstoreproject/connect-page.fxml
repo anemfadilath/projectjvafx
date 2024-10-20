@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.ConnectPageController">
+   <children>
+      <Text layoutX="138.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Secret" />
+      <PasswordField fx:id="txtpassword" layoutX="65.0" layoutY="162.0" prefHeight="26.0" prefWidth="194.0" />
+      <Button layoutX="35.0" layoutY="296.0" mnemonicParsing="false" onAction="#connectButtonClick" text="Connect" />
+      <Button layoutX="225.0" layoutY="296.0" mnemonicParsing="false" onAction="#cancelButtonClick" text="Cancel" />
+   </children>
+</AnchorPane>

@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,10 +13,19 @@ import java.sql.SQLException;
 public class ChoisePageController {
 
     private Stage stage;
-
-    public void setStage(Stage stage) {
+   private String pass;
+  @FXML
+  private Button btnrevenue;
+    public void setStage(Stage stage,String pass) {
         this.stage = stage;
+        this.pass = pass;
+        disbleButton();
     }
+private void disbleButton() {
+        if(this.pass.equals("user")){
+            btnrevenue.setDisable(true);
+        }
+}
 
     @FXML
     public void handleButtonClothesClick() {
@@ -23,7 +33,7 @@ public class ChoisePageController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("display-page.fxml"));
             Parent root = loader.load();
             DisplayPageController controller = loader.getController();
-            controller.setStage(stage,"Clothes");
+            controller.setStage(stage,"Clothes",this.pass);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -39,7 +49,7 @@ public class ChoisePageController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("display-page.fxml"));
             Parent root = loader.load();
             DisplayPageController controller = loader.getController();
-            controller.setStage(stage,"Shoes");
+            controller.setStage(stage,"Shoes",this.pass);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException | SQLException e) {
@@ -53,7 +63,7 @@ public class ChoisePageController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("display-page.fxml"));
             Parent root = loader.load();
             DisplayPageController controller = loader.getController();
-            controller.setStage(stage,"Accesories");
+            controller.setStage(stage,"Accesories",this.pass);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException | SQLException e) {
@@ -66,13 +76,13 @@ public class ChoisePageController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("income-page.fxml"));
             Parent root = loader.load();
             IncomePageController controller = loader.getController();
-            controller.setStage(stage);
+            controller.setStage(stage,this.pass);
 
-            // Changer la scène pour afficher la page de revenu
+
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace(); // Affiche l'erreur si le chargement de la scène échoue
+            e.printStackTrace();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
