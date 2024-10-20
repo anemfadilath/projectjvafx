@@ -5,10 +5,29 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 
 <VBox alignment="CENTER" prefHeight="398.0" prefWidth="293.0" spacing="10" stylesheets="@sellpurchase.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.QuantityPageController">
-    <Label stylesheets="@sellpurchase.css" text="Enter Quantity:" textFill="#c71f65" />
-    <TextField fx:id="txtquantity" />
+    <Label styleClass="txttitle" stylesheets="@sellpurchase.css" text="Enter Quantity">
+      <textFill>
+         <LinearGradient endX="1.0" endY="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.3843137323856354" green="0.5607843399047852" blue="0.6470588445663452" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="0.3843137323856354" green="0.5607843399047852" blue="0.6470588445663452" />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </textFill></Label>
+    <TextField fx:id="txtquantity" prefHeight="26.0" prefWidth="294.0" />
     <HBox prefHeight="66.0" prefWidth="250.0" spacing="10" styleClass="hbox-buttons" stylesheets="@sellpurchase.css">
         <Button onAction="#ConfirmButtonClick" stylesheets="@sellpurchase.css" text="Confirm" />
         <Button onAction="#cancelButtonClick" text="Cancel" />

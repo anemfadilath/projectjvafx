@@ -85,7 +85,7 @@ public class UpdateOperation {
         Connection connection = Databaseconnection.getConnection();
         String sql="UPDATE Products SET discountPrice=? WHERE number=? ";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        clothe.applyDiscount();
+
         preparedStatement.setDouble(1 ,clothe.getDiscountPrice());
         preparedStatement.setInt(2, clothe.getNumber());
         preparedStatement.executeUpdate();
@@ -94,7 +94,7 @@ public class UpdateOperation {
         Connection connection = Databaseconnection.getConnection();
         String sql="UPDATE Products SET discountPrice=? WHERE number=? ";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        shoes.applyDiscount();
+
         preparedStatement.setDouble(1 ,shoes.getDiscountPrice());
         preparedStatement.setInt(2, shoes.getNumber());
         preparedStatement.executeUpdate();
@@ -103,7 +103,7 @@ public class UpdateOperation {
         Connection connection = Databaseconnection.getConnection();
         String sql="UPDATE Products SET discountPrice=? WHERE number=? ";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        accessories.applyDiscount();
+
         preparedStatement.setDouble(1 ,accessories.getDiscountPrice());
         preparedStatement.setInt(2, accessories.getNumber());
         preparedStatement.executeUpdate();

@@ -4,54 +4,73 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="757.0" styleClass="root" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.DisplayPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="686.0" prefWidth="764.0" stylesheets="@displaypage.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.DisplayPageController">
     <children>
-        <ListView fx:id="productListView" layoutY="65.0" prefHeight="570.0" prefWidth="343.0" styleClass="vbox" stylesheets="@style.css" />
-        <Button fx:id="btnadd" layoutX="366.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleButtonClick" text="Add new" />
+        <ListView fx:id="productListView" layoutY="107.0" prefHeight="576.0" prefWidth="343.0" styleClass="vbox" stylesheets="@style.css" />
+        <Button fx:id="btnadd" layoutX="343.0" layoutY="634.0" mnemonicParsing="false" onAction="#handleButtonClick" text="Add new" />
 
         <!-- Pane for displaying product information -->
-        <Pane layoutX="343.0" layoutY="300.0" prefHeight="334.0" prefWidth="300.0">
+        <Pane layoutX="343.0" layoutY="300.0" prefHeight="334.0" prefWidth="343.0" styleClass="product-info-pane" stylesheets="@displaypage.css">
             <children>
-                <Text layoutX="12.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Informations about the product : " wrappingWidth="250.0" />
+                <Text layoutX="12.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Informations about the product" wrappingWidth="250.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3843137323856354" green="0.5607843399047852" blue="0.6470588445663452" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill></Text>
 
                 <!-- Labels for product info with improved alignment -->
-                <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="100.0" />
-                <Text layoutX="14.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purchaseprice" wrappingWidth="100.0" />
-                <Text layoutX="14.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sell Price" wrappingWidth="100.0" />
-                <Text layoutX="14.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock" wrappingWidth="100.0" />
-                <Text layoutX="14.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Size" wrappingWidth="100.0" />
-                <Text layoutX="14.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discounted" wrappingWidth="100.0" />
+                <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-label" text="Name" wrappingWidth="100.0" />
+                <Text layoutX="14.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-label" text="Purchaseprice" wrappingWidth="100.0" />
+                <Text layoutX="14.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-label" text="Sell Price" wrappingWidth="100.0" />
+                <Text layoutX="14.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-label" text="Stock" wrappingWidth="100.0" />
+                <Text layoutX="14.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-label" text="Size" wrappingWidth="100.0" />
+                <Text layoutX="14.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-label" text="Discounted" wrappingWidth="100.0" />
 
                 <!-- Values for product info, aligned with the labels -->
-                <Text fx:id="txtname" layoutX="120.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="160.0">
+                <Text fx:id="txtname" layoutX="120.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-value" wrappingWidth="160.0">
                     <font>
                         <Font size="19.0" />
                     </font>
                 </Text>
-                <Text fx:id="txtpurchaseprice" layoutX="120.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="160.0">
+                <Text fx:id="txtpurchaseprice" layoutX="120.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-value" wrappingWidth="160.0">
                     <font>
                         <Font size="19.0" />
                     </font>
                 </Text>
-                <Text fx:id="txtsellprice" layoutX="120.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="160.0">
+                <Text fx:id="txtsellprice" layoutX="120.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-value" wrappingWidth="160.0">
                     <font>
                         <Font size="19.0" />
                     </font>
                 </Text>
-                <Text fx:id="txtstock" layoutX="120.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="160.0">
+                <Text fx:id="txtstock" layoutX="120.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-value" wrappingWidth="160.0">
                     <font>
                         <Font size="19.0" />
                     </font>
                 </Text>
-                <Text fx:id="txtsize" layoutX="120.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="160.0">
+                <Text fx:id="txtsize" layoutX="120.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-value" wrappingWidth="160.0">
                     <font>
                         <Font size="19.0" />
                     </font>
                 </Text>
-                <Text fx:id="txtdiscounted" layoutX="120.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="160.0">
+                <Text fx:id="txtdiscounted" layoutX="120.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-info-value" wrappingWidth="205.5999755859375">
                     <font>
                         <Font size="19.0" />
                     </font>
@@ -60,11 +79,14 @@
         </Pane>
 
         <!-- Buttons for actions -->
-        <Button layoutX="583.0" layoutY="595.0" mnemonicParsing="false" onAction="#returnButtonClick" prefHeight="26.0" prefWidth="160.0" text="Return" />
-        <Button fx:id="btnadd111" layoutX="371.0" layoutY="139.0" mnemonicParsing="false" onAction="#applyDiscountButtonClick" text="Apply discount" />
-        <Button fx:id="btnadd1111" layoutX="370.0" layoutY="206.0" mnemonicParsing="false" onAction="#purchaseButtonClick" prefHeight="25.0" prefWidth="78.0" text="Purchase" />
-        <Button fx:id="btnadd1" layoutX="371.0" layoutY="103.0" mnemonicParsing="false" onAction="#ModifyButtonClick" text="Modify" />
-        <Button layoutX="370.0" layoutY="247.0" mnemonicParsing="false" onAction="#DelteButtonClick" text="Delete" />
-        <Button fx:id="btnadd11" layoutX="370.0" layoutY="171.0" mnemonicParsing="false" onAction="#sellProductButtonClick" prefHeight="25.0" prefWidth="78.0" text="Sell" />
+        <Button layoutX="592.0" layoutY="634.0" mnemonicParsing="false" onAction="#returnButtonClick" prefHeight="42.0" prefWidth="150.0" text="Return" />
+        <Button fx:id="btnadd111" layoutX="366.0" layoutY="65.0" mnemonicParsing="false" onAction="#applyDiscountButtonClick" text="Apply discount" />
+        <Button fx:id="btnadd1111" layoutX="366.0" layoutY="137.0" mnemonicParsing="false" onAction="#purchaseButtonClick" prefHeight="25.0" prefWidth="78.0" text="Purchase" />
+        <Button fx:id="btnadd1" layoutX="366.0" layoutY="211.0" mnemonicParsing="false" onAction="#ModifyButtonClick" text="Modify" />
+        <Button layoutX="592.0" layoutY="211.0" mnemonicParsing="false" onAction="#DelteButtonClick" text="Delete" />
+        <Button fx:id="btnadd11" layoutX="592.0" layoutY="137.0" mnemonicParsing="false" onAction="#sellProductButtonClick" prefHeight="25.0" prefWidth="78.0" text="Sell" />
+        <Button layoutX="592.0" layoutY="65.0" mnemonicParsing="false" onAction="#stopDiscountButtonClick" text="Stop discount" />
+      <Text fx:id="txtcathegory" fill="#628fa3" layoutX="80.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field2" wrappingWidth="250.0" />
+
     </children>
 </AnchorPane>

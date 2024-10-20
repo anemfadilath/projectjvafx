@@ -16,7 +16,7 @@
             <Image url="@bag.png" />
          </image>
       </ImageView>
-      <Text layoutX="145.0" layoutY="99.0" strokeLineCap="ROUND" strokeWidth="0.0" styleClass="title" text="Women Shop" textAlignment="CENTER" wrappingWidth="363.08087158203125">
+      <Text layoutX="174.0" layoutY="107.0" strokeLineCap="ROUND" strokeWidth="0.0" styleClass="title" text="WOMEN SHOP" textAlignment="CENTER" wrappingWidth="363.08087158203125">
          <fill>
             <LinearGradient endX="0.4469696825200861" endY="1.0" startX="0.18560605970295993" startY="0.43181820349259814">
                <stops>
@@ -27,7 +27,7 @@
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.8117647171020508" green="0.14901961386203766" blue="0.40392157435417175" />
+                        <Color red="0.3843137323856354" green="0.5607843399047852" blue="0.6470588445663452" />
                      </color>
                   </Stop>
                </stops>

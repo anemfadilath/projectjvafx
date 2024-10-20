@@ -20,6 +20,7 @@ public class DisplayPageController {
         this.stage = stage;
         this.category = category;
         this.user = user;
+        txtcathegory.setText(category);
         listProducts();
         disableSizeTxt(category);
     }
@@ -49,6 +50,9 @@ public class DisplayPageController {
             txtsize.setVisible(false);
         }
     }
+    @FXML
+
+    private Text txtcathegory;
     @FXML
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -239,14 +243,38 @@ public class DisplayPageController {
         Product selectedProduct = productListView.getSelectionModel().getSelectedItem();
         if (selectedProduct != null) {
             if(this.category.equals("Clothes")) {
-                new UpdateOperation().applyDiscountClothe((Clothes) selectedProduct);
+                Clothes clothe=(Clothes) selectedProduct;
+                clothe.applyDiscount();
+                new UpdateOperation().applyDiscountClothe(clothe);
             }
             else if(this.category.equals("Shoes")) {
-
-                new UpdateOperation().applyDiscountShoe((Shoes) selectedProduct);
+                Shoes shoe=(Shoes) selectedProduct;
+                shoe.applyDiscount();
+                new UpdateOperation().applyDiscountShoe(shoe);
             } else if (this.category.equals("Accesories")) {
+                Accessories accessorie=(Accessories) selectedProduct;
+                accessorie.applyDiscount();
+                new UpdateOperation().applyDiscountAccessories(accessorie);
+            }
+        }
+    }
 
-                new UpdateOperation().applyDiscountAccessories((Accessories) selectedProduct);
+    public void stopDiscountButtonClick() throws SQLException {
+        Product selectedProduct = productListView.getSelectionModel().getSelectedItem();
+        if (selectedProduct != null) {
+            if(this.category.equals("Clothes")) {
+                Clothes clothe=(Clothes) selectedProduct;
+                clothe.setDiscountPrice(0.0);
+                new UpdateOperation().applyDiscountClothe(clothe);
+            }
+            else if(this.category.equals("Shoes")) {
+                Shoes shoe=(Shoes) selectedProduct;
+                shoe.setDiscountPrice(0.0);
+                new UpdateOperation().applyDiscountShoe(shoe);
+            } else if (this.category.equals("Accesories")) {
+                Accessories accessorie=(Accessories) selectedProduct;
+                accessorie.setDiscountPrice(0.0);
+                new UpdateOperation().applyDiscountAccessories(accessorie);
             }
         }
     }

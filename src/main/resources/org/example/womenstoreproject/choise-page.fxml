@@ -2,6 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="628.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.womenstoreproject.ChoisePageController">
@@ -9,7 +12,23 @@
       <Button fx:id="btnclothes" contentDisplay="BOTTOM" layoutX="50.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleButtonClothesClick" prefHeight="177.0" prefWidth="202.0" text="Clothes" textOverrun="CLIP" />
       <Button fx:id="btnshoes" contentDisplay="BOTTOM" layoutX="50.0" layoutY="206.0" maxHeight="142.0" maxWidth="210.0" mnemonicParsing="false" onAction="#handleButtonShoesClick" prefHeight="142.0" prefWidth="202.0" text="Shoes" textOverrun="CLIP" />
       <Button fx:id="btnaccesories" contentDisplay="BOTTOM" layoutX="384.0" layoutY="206.0" maxHeight="142.0" maxWidth="238.0" mnemonicParsing="false" onAction="#handleButtonAccesoriesClick" prefHeight="142.0" prefWidth="213.0" text="Accesories" textOverrun="CLIP" />
-      <Text fx:id="txttile" fill="#cf2667" layoutX="202.0" layoutY="89.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txttitle" text="WOMEN STORE" wrappingWidth="340.5367126464844" />
+      <Text fx:id="txttile" layoutX="202.0" layoutY="89.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txttitle" text="WOMEN SHOP" wrappingWidth="340.5367126464844">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3843137323856354" green="0.5607843399047852" blue="0.6470588445663452" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Text>
       <Button fx:id="btnrevenue" contentDisplay="BOTTOM" layoutX="384.0" layoutY="361.0" mnemonicParsing="false" onAction="#icomeButtonClick" prefHeight="110.0" prefWidth="229.0" text="See Revenue" textOverrun="CLIP" />
       <Button fx:id="btnBackToMain" contentDisplay="CENTER" layoutX="221.0" layoutY="514.0" mnemonicParsing="false" onAction="#handleButtonBackToMainClick" prefHeight="62.0" prefWidth="167.0" styleClass="back-to-main-button" text="Back to Main" />
    </children>
